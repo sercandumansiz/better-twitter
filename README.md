@@ -6,9 +6,11 @@ I wrote that application to unfollow users who didn't have any activity in last 
 .NET Core 3.1
 
 ## Installation
+```
 $ git clone https://github.com/sercandumansiz/better-twitter.git
 
-```
+cd better-twitter
+
 dotnet build
 ```
 Before run the application you should enter your own credentials in Program.cs then feel free to run the project.
