@@ -53,8 +53,6 @@ namespace BetterTwitter
                 string content = await response.Content.ReadAsStringAsync();
 
                 bearerToken = JsonSerializer.Deserialize<Token>(content).Value;
-
-                Console.WriteLine(content);
             }
         }
 
@@ -70,7 +68,6 @@ namespace BetterTwitter
             _httpClient.DefaultRequestHeaders.Clear();
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
-
 
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 
@@ -130,10 +127,12 @@ namespace BetterTwitter
                     {
                         string content = await response.Content.ReadAsStringAsync();
                         Console.WriteLine(content);
+                        File.WriteAllLines("unfollowed-users.txt", unfollowedUsers);
                     }
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     File.WriteAllLines("unfollowed-users.txt", unfollowedUsers);
                 }
             }
