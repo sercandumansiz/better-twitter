@@ -14,6 +14,6 @@ dotnet build
 Before run the application you should enter your own credentials in Program.cs then feel free to run the project.
 
 ```
-dotnet build
+dotnet run
 ```
 
